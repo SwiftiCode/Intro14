@@ -11,26 +11,20 @@ import XCTest
 
 class Intro14Tests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testAddressBookInitialization() {
+        
+        let goodCase = AddressBook(name:"Thomas", address1:"MyAddress", address2:"", address3:"", zipcode:523973, phoneNumber:"212-35423445")
+        
+        XCTAssertNotNil(goodCase)
+
+        let badCase = AddressBook(name:"", address1:"", address2:"", address3:"", zipcode:0, phoneNumber:"")
+        
+        XCTAssertNil(badCase, "Name is essential")
+        
+        
+        let wrongCase = AddressBook(name:"", address1:"MyAddress1", address2:"MyAddress2", address3:"", zipcode:123432, phoneNumber:"212-2343556")
+        
+        XCTAssertNil(wrongCase)
+        
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }
